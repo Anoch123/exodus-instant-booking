@@ -2,7 +2,7 @@ import { DEVELOPER_COMPANY, SYSTEM_INFORMATION } from "../../config/constants";
 
 export default function Footer() {
     return (
-        <footer className="ftco-footer bg-bottom ftco-no-pt" style={{ backgroundImage: "url(images/bg_3.jpg)" }}>
+        <footer className="ftco-footer bg-bottom ftco-no-pt" style={{ backgroundImage: "url(/images/bg_3.jpg)" }}>
             <div className="container">
                 <div className="row mb-5">
                     <div className="col-md pt-5">
