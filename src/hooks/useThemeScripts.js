@@ -38,9 +38,23 @@ export default function useThemeScripts() {
           console.warn("animateNumber plugin missing:", e);
         }
 
-        // Popper + Bootstrap
-        await import("../../public/js/popper.min.js").catch(() => { });
-        await import("../../public/js/bootstrap.min.js").catch(() =>
+        // Load Popper and Bootstrap via script tags instead of import to avoid module resolution issues
+        const loadScript = (src) => {
+          return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.body.appendChild(script);
+          });
+        };
+
+        // Load popper first, then bootstrap
+        await loadScript('/js/popper.min.js').catch(() => 
+          console.warn("Popper.js failed to load")
+        );
+        await loadScript('/js/bootstrap.min.js').catch(() =>
           console.warn("Bootstrap JS missing")
         );
       } catch (err) {
