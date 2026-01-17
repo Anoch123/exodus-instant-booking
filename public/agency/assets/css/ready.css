@@ -5113,9 +5113,6 @@ body {
   content: '';
   right: 0px;
 }
-.row-card-no-pd [class*=col-] .card:after:last-child {
-  width: 0px;
-}
 
 /*     Form     */
 .form-button-action {
