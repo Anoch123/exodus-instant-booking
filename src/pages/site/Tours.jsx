@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import useThemeScripts from "../../hooks/useThemeScripts";
 
 export default function Tours() {
 
   useThemeScripts();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[])
 
   return (
     <div>

@@ -1,8 +1,14 @@
+import { useEffect } from "react";
 import useThemeScripts from "../../hooks/useThemeScripts";
 
 export default function ContactUs() {
 
   useThemeScripts();
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
@@ -96,7 +102,7 @@ export default function ContactUs() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12 text-center">
-              <div className="img" style={{backgroundImage: "url(images/bg_2.jpg)"}}>
+              <div className="img" style={{ backgroundImage: "url(images/bg_2.jpg)" }}>
                 <div className="overlay"></div>
                 <h2>We Are Pacific A Travel Agency</h2>
                 <p>We can manage your dream building A small river named Duden flows by their place</p>

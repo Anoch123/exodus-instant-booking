@@ -15,6 +15,7 @@ export default function Locations() {
   const itemsPerPage = 6;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchLocations = async () => {
       try {
         setLoading(true);

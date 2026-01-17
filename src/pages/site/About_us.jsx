@@ -1,11 +1,18 @@
 import useThemeScripts from "../../hooks/useThemeScripts";
+import { useEffect } from "react";
 
 export default function AboutUs() {
 
   useThemeScripts();
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
-      <section className="hero-wraps hero-wraps-2 js-partialheight" style={{backgroundImage: "url('images/bg_1.jpg')"}}>
+      <section className="hero-wraps hero-wraps-2 js-partialheight" style={{ backgroundImage: "url('images/bg_1.jpg')" }}>
         <div className="overlay"></div>
         <div className="container">
           <div className="row no-gutters slider-text js-partialheight align-items-end justify-content-center">
@@ -33,7 +40,7 @@ export default function AboutUs() {
             <div className="col-md-6">
               <div className="row">
                 <div className="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-                  <div className="services services-1 color-1 d-block img" style={{backgroundImage: "url(images/services-1.jpg)"}}>
+                  <div className="services services-1 color-1 d-block img" style={{ backgroundImage: "url(images/services-1.jpg)" }}>
                     <div className="icon d-flex align-items-center justify-content-center"><span className="flaticon-paragliding"></span></div>
                     <div className="media-body">
                       <h3 className="heading mb-3">Activities</h3>
@@ -42,7 +49,7 @@ export default function AboutUs() {
                   </div>
                 </div>
                 <div className="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-                  <div className="services services-1 color-2 d-block img" style={{backgroundImage: "url(images/services-2.jpg)"}}>
+                  <div className="services services-1 color-2 d-block img" style={{ backgroundImage: "url(images/services-2.jpg)" }}>
                     <div className="icon d-flex align-items-center justify-content-center"><span className="flaticon-route"></span></div>
                     <div className="media-body">
                       <h3 className="heading mb-3">Travel Arrangements</h3>
@@ -51,7 +58,7 @@ export default function AboutUs() {
                   </div>
                 </div>
                 <div className="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-                  <div className="services services-1 color-3 d-block img" style={{backgroundImage: "url(images/services-3.jpg)"}}>
+                  <div className="services services-1 color-3 d-block img" style={{ backgroundImage: "url(images/services-3.jpg)" }}>
                     <div className="icon d-flex align-items-center justify-content-center"><span className="flaticon-tour-guide"></span></div>
                     <div className="media-body">
                       <h3 className="heading mb-3">Private Guide</h3>
@@ -60,7 +67,7 @@ export default function AboutUs() {
                   </div>
                 </div>
                 <div className="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-                  <div className="services services-1 color-4 d-block img" style={{backgroundImage: "url(images/services-4.jpg)"}}>
+                  <div className="services services-1 color-4 d-block img" style={{ backgroundImage: "url(images/services-4.jpg)" }}>
                     <div className="icon d-flex align-items-center justify-content-center"><span className="flaticon-map"></span></div>
                     <div className="media-body">
                       <h3 className="heading mb-3">Location Manager</h3>
@@ -75,7 +82,7 @@ export default function AboutUs() {
       </section>
 
 
-      <section className="ftco-section ftco-about img" style={{backgroundImage: "url(images/bg_4.jpg)"}}>
+      <section className="ftco-section ftco-about img" style={{ backgroundImage: "url(images/bg_4.jpg)" }}>
         <div className="overlay"></div>
         <div className="container py-md-5">
           <div className="row py-md-5">
@@ -94,7 +101,7 @@ export default function AboutUs() {
             <div className="col-md-12 about-intro">
               <div className="row">
                 <div className="col-md-6 d-flex align-items-stretch">
-                  <div className="img d-flex w-100 align-items-center justify-content-center" style={{backgroundImage: "url(images/about-1.jpg)"}}>
+                  <div className="img d-flex w-100 align-items-center justify-content-center" style={{ backgroundImage: "url(images/about-1.jpg)" }}>
                   </div>
                 </div>
                 <div className="col-md-6 pl-md-5 py-5">
@@ -113,7 +120,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="ftco-section testimony-section bg-bottom" style={{backgroundImage: "url(images/bg_1.jpg)"}}>
+      <section className="ftco-section testimony-section bg-bottom" style={{ backgroundImage: "url(images/bg_1.jpg)" }}>
         <div className="overlay"></div>
         <div className="container">
           <div className="row justify-content-center pb-4">
@@ -137,7 +144,7 @@ export default function AboutUs() {
                       </p>
                       <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                       <div className="d-flex align-items-center">
-                        <div className="user-img" style={{backgroundImage: "url(images/person_1.jpg)"}}></div>
+                        <div className="user-img" style={{ backgroundImage: "url(images/person_1.jpg)" }}></div>
                         <div className="pl-3">
                           <p className="name">Roger Scott</p>
                           <span className="position">Marketing Manager</span>
@@ -158,7 +165,7 @@ export default function AboutUs() {
                       </p>
                       <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                       <div className="d-flex align-items-center">
-                        <div className="user-img" style={{backgroundImage: "url(images/person_2.jpg)"}}></div>
+                        <div className="user-img" style={{ backgroundImage: "url(images/person_2.jpg)" }}></div>
                         <div className="pl-3">
                           <p className="name">Roger Scott</p>
                           <span className="position">Marketing Manager</span>
@@ -179,7 +186,7 @@ export default function AboutUs() {
                       </p>
                       <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                       <div className="d-flex align-items-center">
-                        <div className="user-img" style={{backgroundImage: "url(images/person_3.jpg)"}}></div>
+                        <div className="user-img" style={{ backgroundImage: "url(images/person_3.jpg)" }}></div>
                         <div className="pl-3">
                           <p className="name">Roger Scott</p>
                           <span className="position">Marketing Manager</span>
@@ -200,7 +207,7 @@ export default function AboutUs() {
                       </p>
                       <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                       <div className="d-flex align-items-center">
-                        <div className="user-img" style={{backgroundImage: "url(images/person_1.jpg)"}}></div>
+                        <div className="user-img" style={{ backgroundImage: "url(images/person_1.jpg)" }}></div>
                         <div className="pl-3">
                           <p className="name">Roger Scott</p>
                           <span className="position">Marketing Manager</span>
@@ -221,7 +228,7 @@ export default function AboutUs() {
                       </p>
                       <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                       <div className="d-flex align-items-center">
-                        <div className="user-img" style={{backgroundImage: "url(images/person_2.jpg)"}}></div>
+                        <div className="user-img" style={{ backgroundImage: "url(images/person_2.jpg)" }}></div>
                         <div className="pl-3">
                           <p className="name">Roger Scott</p>
                           <span className="position">Marketing Manager</span>
@@ -240,7 +247,7 @@ export default function AboutUs() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12 text-center">
-              <div className="img" style={{backgroundImage: "url(images/bg_2.jpg)"}}>
+              <div className="img" style={{ backgroundImage: "url(images/bg_2.jpg)" }}>
                 <div className="overlay"></div>
                 <h2>We Are Pacific A Travel Agency</h2>
                 <p>We can manage your dream building A small river named Duden flows by their place</p>

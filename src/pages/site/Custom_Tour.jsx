@@ -5,6 +5,11 @@ function CustomTour() {
   useThemeScripts();
   const inputRef = useRef(null);
 
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [numDays, setNumDays] = useState(0);
   const [trip, setTrip] = useState({
     firstName: "",

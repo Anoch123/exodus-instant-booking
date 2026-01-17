@@ -1,8 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import useThemeScripts from "../../hooks/useThemeScripts";
+import { useEffect } from "react";
 
 export default function Home() {
   useThemeScripts();
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
@@ -48,7 +54,7 @@ export default function Home() {
                                 <label htmlFor="#">Destination</label>
                                 <div className="form-field">
                                   <div className="icon"><span className="fa fa-search"></span></div>
-                                  <input type="text" className="form-control" placeholder="Search place"/>
+                                  <input type="text" className="form-control" placeholder="Search place" />
                                 </div>
                               </div>
                             </div>
@@ -57,7 +63,7 @@ export default function Home() {
                                 <label htmlFor="#">Check-in date</label>
                                 <div className="form-field">
                                   <div className="icon"><span className="fa fa-calendar"></span></div>
-                                  <input type="text" className="form-control checkin_date" placeholder="Check In Date"/>
+                                  <input type="text" className="form-control checkin_date" placeholder="Check In Date" />
                                 </div>
                               </div>
                             </div>
@@ -66,7 +72,7 @@ export default function Home() {
                                 <label htmlFor="#">Check-out date</label>
                                 <div className="form-field">
                                   <div className="icon"><span className="fa fa-calendar"></span></div>
-                                  <input type="text" className="form-control checkout_date" placeholder="Check Out Date"/>
+                                  <input type="text" className="form-control checkout_date" placeholder="Check Out Date" />
                                 </div>
                               </div>
                             </div>
@@ -99,7 +105,7 @@ export default function Home() {
                             <div className="col-md d-flex">
                               <div className="form-group d-flex w-100 border-0">
                                 <div className="form-field w-100 align-items-center d-flex">
-                                  <input type="submit" value="Search" className="align-self-stretch form-control btn btn-primary"/>
+                                  <input type="submit" value="Search" className="align-self-stretch form-control btn btn-primary" />
                                 </div>
                               </div>
                             </div>
@@ -115,7 +121,7 @@ export default function Home() {
                                 <label htmlFor="#">Destination</label>
                                 <div className="form-field">
                                   <div className="icon"><span className="fa fa-search"></span></div>
-                                  <input type="text" className="form-control" placeholder="Search place"/>
+                                  <input type="text" className="form-control" placeholder="Search place" />
                                 </div>
                               </div>
                             </div>
@@ -124,7 +130,7 @@ export default function Home() {
                                 <label htmlFor="#">Check-in date</label>
                                 <div className="form-field">
                                   <div className="icon"><span className="fa fa-calendar"></span></div>
-                                  <input type="text" className="form-control checkin_date" placeholder="Check In Date"/>
+                                  <input type="text" className="form-control checkin_date" placeholder="Check In Date" />
                                 </div>
                               </div>
                             </div>
@@ -133,7 +139,7 @@ export default function Home() {
                                 <label htmlFor="#">Check-out date</label>
                                 <div className="form-field">
                                   <div className="icon"><span className="fa fa-calendar"></span></div>
-                                  <input type="text" className="form-control checkout_date" placeholder="Check Out Date"/>
+                                  <input type="text" className="form-control checkout_date" placeholder="Check Out Date" />
                                 </div>
                               </div>
                             </div>
@@ -509,72 +515,73 @@ export default function Home() {
                       <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                       <div className="d-flex align-items-center">
                         <div className="user-img" style={{ backgroundImage: "url(images/person_2.jpg)" }}>
-                        <div className="pl-3">
-                          <p className="name">Roger Scott</p>
-                          <span className="position">Marketing Manager</span>
+                          <div className="pl-3">
+                            <p className="name">Roger Scott</p>
+                            <span className="position">Marketing Manager</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="item">
-                  <div className="testimony-wrap py-4">
-                    <div className="text">
-                      <p className="star">
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                      </p>
-                      <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                      <div className="d-flex align-items-center">
-                        <div className="user-img" style={{ backgroundImage: "url(images/person_3.jpg)" }}></div>
-                        <div className="pl-3">
-                          <p className="name">Roger Scott</p>
-                          <span className="position">Marketing Manager</span>
+                  <div className="item">
+                    <div className="testimony-wrap py-4">
+                      <div className="text">
+                        <p className="star">
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                        </p>
+                        <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <div className="d-flex align-items-center">
+                          <div className="user-img" style={{ backgroundImage: "url(images/person_3.jpg)" }}></div>
+                          <div className="pl-3">
+                            <p className="name">Roger Scott</p>
+                            <span className="position">Marketing Manager</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="item">
-                  <div className="testimony-wrap py-4">
-                    <div className="text">
-                      <p className="star">
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                      </p>
-                      <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                      <div className="d-flex align-items-center">
-                        <div className="user-img" style={{ backgroundImage: "url(images/person_1.jpg)" }}></div>
-                        <div className="pl-3">
-                          <p className="name">Roger Scott</p>
-                          <span className="position">Marketing Manager</span>
+                  <div className="item">
+                    <div className="testimony-wrap py-4">
+                      <div className="text">
+                        <p className="star">
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                        </p>
+                        <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <div className="d-flex align-items-center">
+                          <div className="user-img" style={{ backgroundImage: "url(images/person_1.jpg)" }}></div>
+                          <div className="pl-3">
+                            <p className="name">Roger Scott</p>
+                            <span className="position">Marketing Manager</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="item">
-                  <div className="testimony-wrap py-4">
-                    <div className="text">
-                      <p className="star">
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                      </p>
-                      <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                      <div className="d-flex align-items-center">
-                        <div className="user-img" style={{ backgroundImage: "url(images/person_2.jpg)" }}></div>
-                        <div className="pl-3">
-                          <p className="name">Roger Scott</p>
-                          <span className="position">Marketing Manager</span>
+                  <div className="item">
+                    <div className="testimony-wrap py-4">
+                      <div className="text">
+                        <p className="star">
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                          <span className="fa fa-star"></span>
+                        </p>
+                        <p className="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <div className="d-flex align-items-center">
+                          <div className="user-img" style={{ backgroundImage: "url(images/person_2.jpg)" }}></div>
+                          <div className="pl-3">
+                            <p className="name">Roger Scott</p>
+                            <span className="position">Marketing Manager</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -583,7 +590,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
 

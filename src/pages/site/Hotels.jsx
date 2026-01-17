@@ -15,6 +15,7 @@ export default function Hotels() {
   const itemsPerPage = 6;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchHotels = async () => {
       try {
         setLoading(true);
