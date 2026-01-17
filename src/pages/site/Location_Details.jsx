@@ -1,4 +1,5 @@
 import { useParams, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import useThemeScripts from "../../hooks/useThemeScripts";
 import { getS3Images } from "../../utils/getS3Images";
 
@@ -7,6 +8,11 @@ export default function LocationDetails() {
     const { state } = useLocation();
     const location = state?.location;
     useThemeScripts();
+
+    // Scroll to top on page load
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
 
     return (
         <div>

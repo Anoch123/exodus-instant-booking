@@ -1,4 +1,5 @@
 import { useParams, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import useThemeScripts from "../../hooks/useThemeScripts";
 import { getS3Images } from "../../utils/getS3Images";
 
@@ -7,6 +8,11 @@ export default function HotelDetails() {
     const { state } = useLocation();
     const hotel = state?.hotel;
     useThemeScripts();
+
+    // Scroll to top on page load
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
 
     return (
         <div>
@@ -46,28 +52,28 @@ export default function HotelDetails() {
                                         gap: '20px'
                                     }}>
                                         {
-                                            hotel?.is_wifi && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/public/icons/wi-fi.png" className="amenities-icons" alt="WiFi" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> WiFi Available</li>
+                                            hotel?.is_wifi && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/icons/wi-fi.png" className="amenities-icons" alt="WiFi" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> WiFi Available</li>
                                         }
                                         {
-                                            hotel?.is_balcony && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/public/icons/balcony.png" className="amenities-icons" alt="Balcony" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Balcony Rooms</li>
+                                            hotel?.is_balcony && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/icons/balcony.png" className="amenities-icons" alt="Balcony" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Balcony Rooms</li>
                                         }
                                         {
-                                            hotel?.is_spa && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/public/icons/lotus.png" className="amenities-icons" alt="Spa" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Spa Services</li>
+                                            hotel?.is_spa && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/icons/lotus.png" className="amenities-icons" alt="Spa" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Spa Services</li>
                                         }
                                         {
-                                            hotel?.is_room_service && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/public/icons/hotel-service.png" className="amenities-icons" alt="Room Service" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Room Service</li>
+                                            hotel?.is_room_service && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/icons/hotel-service.png" className="amenities-icons" alt="Room Service" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Room Service</li>
                                         }
                                         {
-                                            hotel?.is_swimming_pool && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/public/icons/swimmer.png" className="amenities-icons" alt="Swimming Pool" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Swimming Pool</li>
+                                            hotel?.is_swimming_pool && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/icons/swimmer.png" className="amenities-icons" alt="Swimming Pool" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Swimming Pool</li>
                                         }
                                         {
-                                            hotel?.is_air_conditioned && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/public/icons/air-conditioning.png" className="amenities-icons" alt="Air Conditioned" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Air Conditioned</li>
+                                            hotel?.is_air_conditioned && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/icons/air-conditioning.png" className="amenities-icons" alt="Air Conditioned" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Air Conditioned</li>
                                         }
                                         {
-                                            hotel?.is_family_rooms && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/public/icons/home-sharing.png" className="amenities-icons" alt="Family Rooms" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Family Rooms</li>
+                                            hotel?.is_family_rooms && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/icons/home-sharing.png" className="amenities-icons" alt="Family Rooms" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Family Rooms</li>
                                         }
                                         {
-                                            hotel?.is_gym && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/public/icons/weightlifting.png" className="amenities-icons" alt="Gym" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Gym Facilities</li>
+                                            hotel?.is_gym && <li className="amenities-li" style={{ display: "flex", gap: "10px", alignItems: "center" }}><img src="/icons/weightlifting.png" className="amenities-icons" alt="Gym" style={{width: '32px', height: '32px', objectFit: 'contain'}}/> Gym Facilities</li>
                                         }
                                     </ul>
                                 </div>
