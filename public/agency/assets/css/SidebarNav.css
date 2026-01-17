@@ -1,0 +1,229 @@
+/* Sidebar Collapsible Styles */
+/* Note: Base sidebar styles are in ready.css */
+/* This file only adds collapsible functionality without overriding base positioning */
+
+/* Desktop: Sidebar should be visible by default */
+@media screen and (min-width: 992px) {
+  /* Only add transform for collapsed state, don't override base positioning */
+  .wrapper.sidebar-collapsed .sidebar {
+    transform: translateX(-100%) !important;
+  }
+  
+  /* Ensure sidebar-wrapper padding is maintained (base CSS has padding-top: 55px) */
+  .sidebar .sidebar-wrapper {
+    padding-top: 55px !important;
+  }
+}
+
+/* Mobile: Sidebar should be hidden by default, shown when nav_open class is on wrapper */
+@media screen and (max-width: 991px) {
+  .sidebar {
+    /* Sidebar is hidden by default via ready.css transform */
+    transform: translate3d(-270px, 0, 0) !important;
+    transition: transform 0.5s ease !important;
+    z-index: 999 !important; /* Higher than backdrop to be clickable */
+    position: fixed !important;
+  }
+  
+  .wrapper.nav_open .sidebar {
+    transform: translate3d(0px, 0, 0) !important;
+    z-index: 999 !important;
+  }
+  
+  .wrapper.nav_open {
+    overflow: hidden !important;
+  }
+  
+  /* On mobile, sidebar-wrapper should not have top padding (as per ready.css) */
+  .sidebar .sidebar-wrapper {
+    padding-top: 0px;
+  }
+  
+  /* Ensure sidebar links are clickable */
+  .sidebar .nav-item-agency a,
+  .sidebar .nav-item-agency a * {
+    pointer-events: auto !important;
+    z-index: 1000 !important;
+    position: relative;
+  }
+  
+  /* Ensure main-panel is visible and properly positioned on mobile */
+  .main-panel {
+    width: 100% !important;
+    margin-left: 0 !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+  
+  /* When sidebar is open, shift main-panel to the right */
+  .wrapper.nav_open .main-panel {
+    transform: translate3d(260px, 0, 0) !important;
+  }
+  
+  /* Ensure content is visible */
+  .main-panel .content {
+    margin-top: 55px !important;
+    padding: 30px 10px !important;
+    min-height: calc(100vh - 55px) !important;
+  }
+}
+
+/* Foldable Nav Item Styles */
+.nav-item-agency {
+  position: relative;
+}
+
+.nav-item-agency > a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-item-agency > a .caret {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  font-size: 14px;
+  color: #83848a;
+}
+
+.nav-item-agency > a .caret.open {
+  transform: rotate(90deg);
+}
+
+/* Submenu Styles */
+.nav-item-agency .submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #fbfbfb;
+}
+
+.nav-item-agency .submenu.show {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.nav-item-agency .submenu li {
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item-agency .submenu li a {
+  padding: 10px 25px 10px 65px;
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #83848a;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-item-agency .submenu li a:hover {
+  background-color: #f5f5f5;
+  color: #575962;
+}
+
+.nav-item-agency .submenu li a .link-collapse {
+  display: block;
+}
+
+/* User Profile Collapse Styles */
+.user .info a {
+  position: relative;
+}
+
+.user .info .caret {
+  position: absolute;
+  top: 17px;
+  right: 0px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  font-size: 14px;
+  color: #777;
+}
+
+.user .info .caret.open {
+  transform: rotate(90deg);
+}
+
+.user .info .collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.user .info .collapse.show {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.user .info .collapse .nav {
+  margin-top: 10px;
+  padding-left: 0;
+}
+
+.user .info .collapse .nav li {
+  list-style: none;
+  padding: 0;
+}
+
+.user .info .collapse .nav li a {
+  padding: 7px 0;
+  display: block;
+  color: #83848a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.user .info .collapse .nav li a:hover {
+  color: #575962;
+}
+
+/* Additional mobile adjustments if needed */
+@media screen and (max-width: 991px) {
+  /* Sidebar backdrop overlay for mobile */
+  .sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    z-index: 998; /* Lower than sidebar (999) so sidebar is clickable */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; /* Don't block clicks when hidden */
+  }
+  
+  .wrapper.nav_open .sidebar-backdrop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; /* Allow clicks when visible (to close sidebar) */
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+.nav-item-agency > a,
+.nav-item-agency .submenu li a,
+.user .info a {
+  cursor: pointer;
+}
+
+.nav-item-agency.active > a {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+

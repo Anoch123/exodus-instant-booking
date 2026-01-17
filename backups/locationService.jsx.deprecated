@@ -1,0 +1,33 @@
+// API operations
+export const locationService = {
+    async fetchLocation(locationId, agencyId) {
+      const { data, error } = await supabase
+        .from("locations")
+        .select("*")
+        .eq("id", locationId)
+        .eq("agency_id", agencyId)
+        .single();
+  
+      if (error) throw error;
+      return data;
+    },
+  
+    async createLocation(payload, agencyId) {
+      return await supabase
+        .from("locations")
+        .insert({ ...payload, agency_id: agencyId })
+        .select("id, name")
+        .single();
+    },
+  
+    async updateLocation(payload, locationId, agencyId) {
+      return await supabase
+        .from("locations")
+        .update({
+          ...payload,
+          updated_at: new Date().toISOString()
+        })
+        .eq("id", locationId)
+        .eq("agency_id", agencyId);
+    }
+  };
