@@ -7,7 +7,7 @@ import AuditTable from "../../components/agency/AuditTable";
 export default function AgencyDashboard() {
   return (
     <div>
-      {/* <div className="row">
+      <div className="row">
         <StatCard
           title="Total Users"
           value={1200}
@@ -41,7 +41,7 @@ export default function AgencyDashboard() {
         />
       </div>
       <RevenueChart />
-      <RecentBookings /> */}
+      <RecentBookings />
 
       <div className="card">
         <div className="p-3">
