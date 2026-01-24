@@ -26,7 +26,7 @@ export default function MainHeader({ onToggleSidebar }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
 
     
-  }, [agencyUser]);Agency
+  }, [agencyUser]);
 
   return (
     <div className="main-header">
