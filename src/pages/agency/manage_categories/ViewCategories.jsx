@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { supabase } from "../../../supabaseClient";
+import { categoryService } from "../../../services/categoryService";
 import { useAuth } from "../../../context/AuthContext";
 import { handleSupabaseError } from "../../../utils/errorHandler";
 import GridTable from "../../../components/common/GridTable";
@@ -30,27 +30,24 @@ export default function ViewCategories() {
       setLoading(true);
       setError(null);
 
-      const offset = (page - 1) * PAGE_SIZE;
+      const resp = await categoryService.getAll(
+        agencyDetails.agency_id,
+        page,
+        PAGE_SIZE
+      );
 
-      const { data, error } = await supabase
-        .from("categories")
-        .select("*")
-        .eq("agency_id", agencyDetails.agency_id)
-        .order("created_at", { ascending: false })
-        .range(offset, offset + 10 - 1);
+      const data = resp?.data || [];
+      const pagination = resp?.pagination || {};
 
-        setHasMore(data.length > PAGE_SIZE);
-
-      if (error) throw error;
-
-      setCategories(data || []);
+      setCategories(data);
+      setHasMore(Boolean(pagination.hasMore));
     } catch (err) {
-      setError(handleSupabaseError(err, "Failed to load ategories"));
+      setError({ message: err.message || "Failed to load categories" });
       setCategories([]);
     } finally {
       setLoading(false);
     }
-  }, [agencyDetails?.agency_id]);
+  }, [agencyDetails?.agency_id, page]);
 
   useEffect(() => {
     fetchCategories();

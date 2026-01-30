@@ -7,6 +7,7 @@ import sriLankaCities from '../../../config/srilankacities.json';
 import { auditLog } from '../../../lib/audit';
 import { getUpdatedFields } from '../../../lib/auditUtils';
 import { Editor } from 'primereact/editor';
+import { AMENITIES } from '../../../config/constants';
 
 export default function CreateHotel() {
   const navigate = useNavigate();
@@ -117,16 +118,7 @@ export default function CreateHotel() {
     }
   };
 
-  const AMENITIES = [
-    { label: 'WiFi', field: 'is_wifi' },
-    { label: 'Balcony', field: 'is_balcony' },
-    { label: 'Spa', field: 'is_spa' },
-    { label: 'Room Service', field: 'is_room_service' },
-    { label: 'Swimming Pool', field: 'is_swimming_pool' },
-    { label: 'Air Conditioned', field: 'is_air_conditioned' },
-    { label: 'Family Rooms', field: 'is_family_rooms' },
-    { label: 'Gym', field: 'is_gym' },
-  ];
+  
 
 
   if (!agencyUser || hotelForm.pageLoading) {

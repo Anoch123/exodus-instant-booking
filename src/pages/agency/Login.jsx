@@ -126,63 +126,71 @@ export default function AgencyLogin() {
   };
 
   return (
-    <div
-      className="d-flex justify-content-center align-items-center"
-      style={{ minHeight: "100vh", background: "#f8f9fa" }}
-    >
-      <div className="container d-flex flex-column align-items-center">
-        {/* Login Card */}
-        <form
-          onSubmit={handleLogin}
-          className="login-form p-4 shadow-sm rounded mb-3"
-          style={{ width: "450px", background: "#fff" }}
-        >
-          <h3 className="text-center mb-4">
-            {SYSTEM_INFORMATION.name} Agency Login
-          </h3>
-  
-          <input
-            type="email"
-            className="form-control mb-3"
-            placeholder="Email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            disabled={isLoading}
-          />
-  
-          <input
-            type="password"
-            className="form-control mb-3"
-            placeholder="Password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            disabled={isLoading}
-          />
-  
-          <button
-            type="submit"
-            className="btn btn-primary w-100 mb-3"
-            disabled={isLoading}
+  <div
+    className="d-flex justify-content-center align-items-center px-3"
+    style={{ minHeight: "100vh", background: "#f8f9fa" }}
+  >
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-12 col-sm-10 col-md-6 col-lg-5 col-xl-5">
+          {/* Login Card */}
+          <form
+            onSubmit={handleLogin}
+            className="p-4 shadow-sm rounded mb-3 bg-white"
           >
-            {isLoading ? "Logging in..." : "Login"}
-          </button>
+            <h3 className="text-center mb-4">
+              {SYSTEM_INFORMATION.name} Agency Login
+            </h3>
 
-          {/* error message */}
-          {error && (
-            <div className="alert alert-danger py-2 mb-3 text-center">{error}</div>
-          )}
-        </form>
-  
-        {/* Developed By */}
-        <p className="text-muted">
-          {DEVELOPER_COMPANY.attributionText}{' '}
-          <a href={DEVELOPER_COMPANY.website} target="_blank" rel="noopener noreferrer">
-            <strong>{DEVELOPER_COMPANY.displayText}</strong>
-          </a>
-        </p>
+            <input
+              type="email"
+              className="form-control mb-3"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={isLoading}
+            />
+
+            <input
+              type="password"
+              className="form-control mb-3"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={isLoading}
+            />
+
+            <button
+              type="submit"
+              className="btn btn-primary w-100 mb-3"
+              disabled={isLoading}
+            >
+              {isLoading ? "Logging in..." : "Login"}
+            </button>
+
+            {error && (
+              <div className="alert alert-danger py-2 text-center mb-0">
+                {error}
+              </div>
+            )}
+          </form>
+
+          {/* Developed By */}
+          <p className="text-muted text-center small">
+            {DEVELOPER_COMPANY.attributionText}{" "}
+            <a
+              href={DEVELOPER_COMPANY.website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>{DEVELOPER_COMPANY.displayText}</strong>
+            </a>
+          </p>
+        </div>
       </div>
     </div>
-  );  
+  </div>
+);
 }

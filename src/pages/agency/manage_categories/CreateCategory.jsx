@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
-import { supabase } from "../../../supabaseClient";
+import { categoryService } from "../../../services/categoryService";
 import { useAuth } from "../../../context/AuthContext";
 import { handleSupabaseError } from "../../../utils/errorHandler";
 import { auditLog } from "../../../lib/audit";
@@ -39,14 +39,9 @@ export default function CreateCategory() {
 
     const fetchCategories = async () => {
       try {
-        const { data, error } = await supabase
-          .from("categories")
-          .select("*")
-          .eq("id", categoryId)
-          .eq("agency_id", agencyUser.agency_id)
-          .single();
-
-        if (error) throw error;
+        const resp = await categoryService.getById(categoryId, agencyUser.agency_id);
+        const data = resp?.data;
+        if (!data) throw new Error("Category not found");
 
         const cleanedData = {
           name: data.name || "",
@@ -108,23 +103,31 @@ export default function CreateCategory() {
         status: payload.status,
       };
 
-      const query = isEditMode
-        ? supabase
-            .from("categories")
-            .update({
-              ...dbPayload,
-              updated_at: new Date().toISOString()
-            })
-            .eq("id", categoryId)
-            .eq("agency_id", agencyUser.agency_id)
-        : supabase
-            .from("categories")
-            .insert({ ...dbPayload, agency_id: agencyUser.agency_id })
-            .select("id, name")
-            .single();      
 
-      const { error, data } = await query;
-      if (error) throw error;
+      let data = null;
+      if (isEditMode) {
+        const payload = {
+          agencyId: agencyUser.agency_id,
+          agencyUserId: agencyUser.id,
+          role: agencyUser.role,
+          ...dbPayload,
+        };
+        const resp = await categoryService.update(categoryId, payload);
+        data = resp?.data;
+      } else {
+        const payload = {
+          agencyId: agencyUser.agency_id,
+          agencyUserId: agencyUser.id,
+          role: agencyUser.role,
+          name: dbPayload.name,
+          slug: dbPayload.slug,
+          parent_tour_category: dbPayload.parent_tour_category,
+          description: dbPayload.description,
+          status: dbPayload.status,
+        };
+        const resp = await categoryService.create(payload);
+        data = resp?.data;
+      }
 
       const baseLog = {
         agency_user_id: agencyUser.id,

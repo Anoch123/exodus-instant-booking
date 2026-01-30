@@ -51,3 +51,15 @@ export const SYSTEM_INFORMATION = {
   phone: '+76 344 3826 | +94 76 344 3826',
 };
 
+// Common amenity definitions used across the app
+export const AMENITIES = [
+  { label: 'WiFi', field: 'is_wifi', displayText: 'WiFi Available', icon: '/icons/wi-fi.png' },
+  { label: 'Balcony', field: 'is_balcony', displayText: 'Balcony Rooms', icon: '/icons/balcony.png' },
+  { label: 'Spa', field: 'is_spa', displayText: 'Spa Services', icon: '/icons/lotus.png' },
+  { label: 'Room Service', field: 'is_room_service', displayText: 'Room Service', icon: '/icons/hotel-service.png' },
+  { label: 'Swimming Pool', field: 'is_swimming_pool', displayText: 'Swimming Pool', icon: '/icons/swimmer.png' },
+  { label: 'Air Conditioned', field: 'is_air_conditioned', displayText: 'Air Conditioned', icon: '/icons/air-conditioning.png' },
+  { label: 'Family Rooms', field: 'is_family_rooms', displayText: 'Family Rooms', icon: '/icons/home-sharing.png' },
+  { label: 'Gym', field: 'is_gym', displayText: 'Gym Facilities', icon: '/icons/weightlifting.png' },
+];
+
